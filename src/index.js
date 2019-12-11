@@ -52,6 +52,13 @@ function App () {
     getMyPlaces()
   }, [])
 
+  useEffect(() => {
+    if (mapRef) {
+      fitBounds(mapRef)
+      console.log('doing fitBounds')
+    }
+  }, [places])
+
   // Iterate myPlaces to size, center, and zoom map to contain all markers
   const fitBounds = map => {
     const bounds = new window.google.maps.LatLngBounds()
